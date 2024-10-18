@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="23094" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="23084"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="Commotion" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
+                        <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" minValue="0.0" maxValue="100" translatesAutoresizingMaskIntoConstraints="NO" id="Z1u-hz-r1E">
+                                <rect key="frame" x="18" y="416.5" width="378" height="64"/>
+                            </slider>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Steps so far" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="y4k-Fy-Nyf">
+                                <rect key="frame" x="161.5" y="387.5" width="91" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" systemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KYq-39-foA">
+                                <rect key="frame" x="161.5" y="487.5" width="41.5" height="20.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" systemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Yesterday Steps" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jb6-cN-RRi">
+                                <rect key="frame" x="132" y="170" width="194" height="20.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Today Steps" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eI9-Zc-jFR">
+                                <rect key="frame" x="132" y="99" width="194" height="20.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Remaining Steps" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8Cu-sz-dQP">
+                                <rect key="frame" x="125" y="716.5" width="151" height="20.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Goal" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="3HP-z2-sLn">
+                                <rect key="frame" x="134" y="654" width="97" height="34"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="Z1u-hz-r1E" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="36a-zk-CXp"/>
+                            <constraint firstItem="Z1u-hz-r1E" firstAttribute="top" secondItem="y4k-Fy-Nyf" secondAttribute="bottom" constant="8" symbolic="YES" id="6zL-j5-RHH"/>
+                            <constraint firstItem="Z1u-hz-r1E" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="9hY-HY-IgX"/>
+                            <constraint firstItem="y4k-Fy-Nyf" firstAttribute="top" secondItem="Jb6-cN-RRi" secondAttribute="bottom" constant="197" id="Iod-uO-j3U"/>
+                            <constraint firstItem="Jb6-cN-RRi" firstAttribute="top" secondItem="eI9-Zc-jFR" secondAttribute="bottom" constant="57.5" id="Izm-Rc-4f3"/>
+                            <constraint firstItem="KYq-39-foA" firstAttribute="top" secondItem="Z1u-hz-r1E" secondAttribute="bottom" constant="8" symbolic="YES" id="MlE-cN-ePE"/>
+                            <constraint firstItem="Z1u-hz-r1E" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="VdW-ig-QhL"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="8Cu-sz-dQP" secondAttribute="trailing" constant="118" id="Vk4-yo-QKi"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="8Cu-sz-dQP" secondAttribute="bottom" constant="125" id="WBx-Du-VgR"/>
+                            <constraint firstItem="eI9-Zc-jFR" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="44" id="WSb-Y4-2Ct"/>
+                            <constraint firstItem="eI9-Zc-jFR" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="112" id="WqK-3K-MpI"/>
+                            <constraint firstItem="8Cu-sz-dQP" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="105" id="fLD-CJ-GIi"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="eI9-Zc-jFR" secondAttribute="trailing" constant="68" id="nba-vS-rU2"/>
+                            <constraint firstItem="KYq-39-foA" firstAttribute="leading" secondItem="y4k-Fy-Nyf" secondAttribute="leading" id="sdF-sR-F5d"/>
+                            <constraint firstItem="Jb6-cN-RRi" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="112" id="sjW-a5-Klb"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="Jb6-cN-RRi" secondAttribute="trailing" constant="68" id="t4a-oh-uuk"/>
+                            <constraint firstItem="y4k-Fy-Nyf" firstAttribute="centerX" secondItem="Z1u-hz-r1E" secondAttribute="centerX" id="xsL-pu-xtb"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="dailyGoalTextField" destination="3HP-z2-sLn" id="5SB-TP-oOI"/>
+                        <outlet property="isWalking" destination="KYq-39-foA" id="Jtv-M3-ffl"/>
+                        <outlet property="remainingStepsLabel" destination="8Cu-sz-dQP" id="rWS-sO-ASk"/>
+                        <outlet property="stepsLabel" destination="y4k-Fy-Nyf" id="saR-4n-TYT"/>
+                        <outlet property="stepsSlider" destination="Z1u-hz-r1E" id="djv-At-LhT"/>
+                        <outlet property="todayStepsLabel" destination="eI9-Zc-jFR" id="rjl-XK-dqn"/>
+                        <outlet property="yesterdayStepsLabel" destination="Jb6-cN-RRi" id="kke-sm-7nT"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="563.768115942029" y="336.83035714285711"/>
+        </scene>
+    </scenes>
+    <resources>
+        <systemColor name="darkTextColor">
+            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>
