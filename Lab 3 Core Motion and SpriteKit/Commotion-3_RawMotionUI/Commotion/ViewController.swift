@@ -48,13 +48,14 @@ class ViewController: UIViewController, UITextFieldDelegate {
     //MARK: UI Elements
     @IBOutlet weak var stepsSlider: UISlider!   //slider to display step count
     @IBOutlet weak var stepsLabel: UILabel!     //label to display step count
-    @IBOutlet weak var isWalking: UILabel!      //label to display if user is walking/stationary
+    //@IBOutlet weak var isWalking: UILabel!      //label to display if user is walking/stationary
     
     // Module A
-    @IBOutlet weak var todayStepsLabel: UILabel! // Label to display today's step count
-    @IBOutlet weak var yesterdayStepsLabel: UILabel! // Label to display yesterday's step count
+    @IBOutlet weak var todayStepsLabel: UILabel!          // Label to display today's step count
+    @IBOutlet weak var yesterdayStepsLabel: UILabel!      // Label to display yesterday's step count
     @IBOutlet weak var dailyGoalTextField: UITextField!   //label for daily goal
     @IBOutlet weak var remainingStepsLabel: UILabel!      //label for remaining steps from goal
+    @IBOutlet weak var activityLabel: UILabel!            // Label to display the current activity of the user
     
     
     //MARK: View Hierarchy
@@ -74,6 +75,10 @@ class ViewController: UIViewController, UITextFieldDelegate {
         self.dailyGoalTextField.delegate = self        //delegate for daily goal text field label
         self.dailyGoalTextField.text = "\(dailyGoal)"  //udpate the daily goal text field label with dailyGoal
         self.updateRemainingSteps()    //update the remaining steps
+        
+        // Module A: Add keyboard observers
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
     }
     
     
@@ -157,6 +162,23 @@ class ViewController: UIViewController, UITextFieldDelegate {
         textField.resignFirstResponder()  //dismiss keyboard once user is done editing the text field
         return true  //move to next action
     }
+    
+    // Handle keyboard will show
+    @objc func keyboardWillShow(notification: NSNotification) {
+        if let keyboardFrame = notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? CGRect {
+            let keyboardHeight = keyboardFrame.height
+            if view.frame.origin.y == 0 {
+                view.frame.origin.y -= keyboardHeight / 2
+            }
+        }
+    }
+    
+    // Handle keyboard will hide
+    @objc func keyboardWillHide(notification: NSNotification) {
+        if view.frame.origin.y != 0 {
+            view.frame.origin.y = 0
+        }
+    }
 }
 
 
@@ -181,7 +203,7 @@ extension ViewController{
         // if we have gravity property from "motionData"
         if let gravity = motionData?.gravity {
             let rotation = atan2(gravity.x, gravity.y) - Double.pi   //compute rotation angle based on gravity vectors x and y
-            self.isWalking.transform = CGAffineTransform(rotationAngle: CGFloat(rotation))  //apply calculated rotation to "isWalking" image
+            //self.isWalking.transform = CGAffineTransform(rotationAngle: CGFloat(rotation))  //apply calculated rotation to "isWalking" image
         }
     }
 }
@@ -239,7 +261,24 @@ extension ViewController{
             
             // update text label isWalking as with information about user's activity (i.e. Walking)
             DispatchQueue.main.async{
-                self.isWalking.text = "Walking: \(unwrappedActivity.walking)\n Still: \(unwrappedActivity.stationary)"
+                //self.isWalking.text = "Walking: \(unwrappedActivity.walking)\n Still: \(unwrappedActivity.stationary)"
+                
+                //Module A: Use "unwrappedActivity" object to classify detected activity
+                if unwrappedActivity.unknown {
+                    self.activityLabel.text = "Activity: Unknown 🤷‍♂️"
+                } else if unwrappedActivity.stationary {
+                    self.activityLabel.text = "Activity: Still 🧘‍♂️"
+                } else if unwrappedActivity.walking {
+                    self.activityLabel.text = "Activity: Walking 🚶‍♂️"
+                } else if unwrappedActivity.running {
+                    self.activityLabel.text = "Activity: Running 🏃‍♂️"
+                } else if unwrappedActivity.cycling {
+                    self.activityLabel.text = "Activity: Cycling 🚴‍♂️"
+                } else if unwrappedActivity.automotive {
+                    self.activityLabel.text = "Activity: Driving 🚗"
+                } else {
+                    self.activityLabel.text = "Acvitiy: Unknown 🤷‍♂️"
+                }
             }
         }
     }
